@@ -27,6 +27,9 @@ function successPosition(position) {
 	//You can find out more details about what the position obejct contains here:
 	// http://www.w3schools.com/html/html5_geolocation.asp
 	
+    //Unix time
+    var unixtime = new Date(position.timestamp);
+    var date = unixtime.toDateString();
 
 	//lets get some stuff out of the position object
 	var time = position.timestamp;
@@ -34,7 +37,7 @@ function successPosition(position) {
 	var longitude = position.coords.longitude;
     
 	//OK. Now we want to update the display with the correct values
-	$('#time').val("Recieved data at " + time);
+	$('#time').val("Recieved data at " + unixtime);
 	$('#lattext').val(latitude);
     $('#longtext').val(longitude);
 	
